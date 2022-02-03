@@ -24,3 +24,13 @@ interface link {
   nome: string;
   url: string;
 }
+
+export type AnimeProps = {
+  animes: Anime[];
+};
+
+export type ModalProps = {
+  handleOpen: () => void;
+  handleClose: () => void;
+  open: boolean;
+};
