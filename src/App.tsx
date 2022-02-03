@@ -1,10 +1,10 @@
 import React from "react";
-import "./styles/App.css";
+import { AppStyle } from "./styles/App";
 import logo from "./assets/logo.svg";
 
 export function App() {
   return (
-    <div className="App">
+    <div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +19,7 @@ export function App() {
           Learn React
         </a>
       </header>
+      <AppStyle />
     </div>
   );
 }
