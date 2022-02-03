@@ -1,10 +1,10 @@
 import React from "react";
 import { AppStyle } from "./styles/style";
-import logo from "./assets/logo.svg";
 import { MediaCard } from "./components/card";
 import { Anime } from "./model/animes";
 import { api } from "./services/anime-schedule-api";
 import { BasicModal } from "./components/modalAdd";
+import { Navegation } from "./components/navegation";
 
 export function App() {
   const [Animes, setAnimes] = React.useState<Anime[]>([]);
@@ -18,7 +18,7 @@ export function App() {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="App-header">
+    <body className="App-header">
       <header>
         <BasicModal
           handleClose={handleClose}
@@ -31,6 +31,8 @@ export function App() {
       <main>
         <MediaCard animes={Animes} />
       </main>
-    </div>
+
+      <Navegation />
+    </body>
   );
 }
