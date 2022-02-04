@@ -27,6 +27,7 @@ interface link {
 
 export type AnimeProps = {
   animes: Anime[];
+  day: string;
 };
 
 export type ModalProps = {

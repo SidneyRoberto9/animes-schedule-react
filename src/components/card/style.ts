@@ -28,7 +28,7 @@ export const Container = styled.div`
 
     &:hover {
       transition: 0.3s;
-      transform: translateY(10px);
+      transform: translateY(-10px);
       width: 210px;
       height: 370px;
       margin: 20px;
