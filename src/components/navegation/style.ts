@@ -36,12 +36,4 @@ export const Container = styled.footer`
       }
     }
   }
-
-  @media (max-width: 768px) {
-    .list {
-      input {
-        font-size: 10px;
-      }
-    }
-  }
 `;

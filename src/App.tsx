@@ -1,9 +1,5 @@
 import React from "react";
 import { AppStyle } from "./styles/style";
-import { MediaCard } from "./components/card";
-import { Anime } from "./model/animes";
-import { api } from "./services/anime-schedule-api";
-import { BasicModal } from "./components/modalAdd";
 import { Navegation } from "./components/navegation";
 import { TabsButton } from "./components/tabs";
 
