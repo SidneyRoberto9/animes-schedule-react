@@ -1,10 +1,11 @@
-import * as React from "react";
-import { AppBar, createTheme, Tab, Tabs, ThemeProvider } from "@mui/material";
+import * as React from 'react';
 
-import { Anime } from "../../model/animes";
-import { api } from "../../services/anime-schedule-api";
-import { MediaCard } from "../card";
-import { Container } from "./style";
+import { AppBar, createTheme, Tab, Tabs, ThemeProvider } from '@mui/material';
+
+import { Anime } from '../../model/animes';
+import { api } from '../../services/anime-schedule-api';
+import { MediaCard } from '../card';
+import { Container } from './style';
 
 const theme = createTheme({
   palette: {

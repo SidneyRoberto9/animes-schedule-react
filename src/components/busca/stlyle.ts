@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  h2 {
-    position: absolute;
-    margin: 0;
-    top: 40%;
-    left: 40%;
+export const Container = styled.body`
+  h1 {
+    text-align: center;
   }
 `;

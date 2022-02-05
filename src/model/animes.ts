@@ -12,6 +12,15 @@ interface link {
   url: string;
 }
 
+export interface JK {
+  mal_id: string;
+  images: {
+    jpg: {
+      image_url: string;
+    };
+  };
+  title: string;
+}
 export type AnimeProps = {
   animes: Anime[];
   day: string;
