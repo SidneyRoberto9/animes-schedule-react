@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { Busca } from "./components/busca";
 import { BasicModal } from "./components/modalAdd";
 import { Navegation } from "./components/navegation";
 import { TabsButton } from "./components/tabs";
@@ -30,10 +31,21 @@ export function App() {
       <Switch>
         <Route path="/" exact component={TabsButton} />
         <Route path={path} exact component={Modal} />
+        <Route path="/search" exact component={Busca} />
       </Switch>
 
       <AppStyle />
       <Navegation />
     </body>
+  );
+}
+
+function Search() {
+  return (
+    <>
+      <Busca />
+
+      <Navegation />
+    </>
   );
 }
