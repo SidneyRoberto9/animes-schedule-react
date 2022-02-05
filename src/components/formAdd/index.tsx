@@ -6,8 +6,6 @@ import { Container } from "./style";
 import { Anime } from "../../model/animes";
 import { api } from "../../services/anime-schedule-api";
 
-import { toast } from "react-toastify";
-
 export function FormAdd() {
   function handleSubmit(data: Anime, { reset }: any) {
     api.post("animes", data);
@@ -23,6 +21,7 @@ export function FormAdd() {
         <Input name="title" label="Titulo" />
         <Input name="image_url" label="Url Image" />
         <Input name="weekday" label="Dia da Semana" />
+        <Input name="airing" label="Esta lançando?" />
         <Scope path="external_links[0]">
           <Input name="nome" label="External Nome do Site" />
           <Input name="url" label="External URL do Site" />

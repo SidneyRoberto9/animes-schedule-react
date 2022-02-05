@@ -3,6 +3,7 @@ export interface Anime {
   title: string;
   image_url: string;
   weekday: string;
+  airing: boolean;
   external_links: link[];
 }
 

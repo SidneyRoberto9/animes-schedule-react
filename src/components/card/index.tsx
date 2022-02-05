@@ -9,7 +9,7 @@ export function MediaCard(animes: AnimeProps) {
   return (
     <Container>
       {animes.animes.map((anime) => {
-        if (anime.weekday === animes.day) {
+        if (anime.weekday === animes.day && anime.airing) {
           return (
             <div
               className="card-anime"

@@ -66,7 +66,7 @@ export function TabsButton() {
           <MediaCard animes={Animes} day="segunda" />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <MediaCard animes={Animes} day="terça" />
+          <MediaCard animes={Animes} day="terca" />
         </TabPanel>
         <TabPanel value={value} index={3}>
           <MediaCard animes={Animes} day="quarta" />

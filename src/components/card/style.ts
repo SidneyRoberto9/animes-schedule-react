@@ -5,6 +5,7 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-flow: row wrap;
+  padding-top: 12px;
 
   .card-anime {
     background-color: #1f1f1f;
@@ -14,7 +15,7 @@ export const Container = styled.div`
     width: 200px;
     height: 360px;
     overflow: hidden;
-    margin: 30px;
+    margin: 10px;
     cursor: pointer;
     img {
       width: 100%;
@@ -36,7 +37,7 @@ export const Container = styled.div`
       transform: translateY(-10px);
       width: 210px;
       height: 370px;
-      margin: 25px;
+      margin: 5px;
 
       img {
         filter: saturate(135%);
