@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   .MuiButton-root {
@@ -8,6 +8,12 @@ export const Container = styled.div`
     background-color: #f0f8ff;
     &:hover {
       background-color: #bde0ff;
+    }
+  }
+
+  TextField {
+    & + TextField {
+      padding-left: 10px;
     }
   }
 `;
