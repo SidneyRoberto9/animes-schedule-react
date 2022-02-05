@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-flow: row wrap;
 
   .card-anime {
     background-color: #1f1f1f;
@@ -44,13 +45,15 @@ export const Container = styled.div`
   }
   @media (max-width: 500px) {
     .card-anime {
-      width: 200px;
-      height: 300px;
-      margin: 13px;
+      width: 155px;
+      height: 285px;
+      min-width: 155px;
+      min-height: 285px;
+      margin: 12px;
       border-radius: 20px;
 
       .title {
-        font-size: 1.1rem;
+        font-size: 1.03rem;
         text-align: center;
         margin-top: 4px;
       }
@@ -62,8 +65,10 @@ export const Container = styled.div`
       }
       &:hover {
         transform: translateY(-5px);
-        width: 210px;
-        height: 310px;
+        width: 155px;
+        height: 285px;
+        min-width: 155px;
+        min-height: 285px;
         margin: 9.3px;
       }
     }

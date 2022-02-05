@@ -28,19 +28,22 @@ export function TabsButton() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ width: "100%" }}>
+      <div style={{ width: "100%", padding: 0, margin: 0 }}>
         <AppBar position="static" sx={{ background: "#121212" }}>
           <Tabs
             value={value}
             onChange={handleChange}
             variant="scrollable"
-            scrollButtons={false}
+            scrollButtons={true}
             textColor="primary"
             indicatorColor="primary"
             allowScrollButtonsMobile={true}
             sx={{
               background: "#121212",
               m: "0 auto",
+              ".MuiTabs-scrollButtons": {
+                color: "#fff",
+              },
               "@media (max-width: 420px)": {
                 m: "0",
               },
