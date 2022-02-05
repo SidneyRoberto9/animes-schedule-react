@@ -1,11 +1,13 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
-import TextField from "@mui/material/TextField";
-import { Container, style } from "./style";
-import { Anime, ModalProps } from "../../model/animes";
-import { api } from "../../services/anime-schedule-api";
+import * as React from 'react';
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import TextField from '@mui/material/TextField';
+
+import { Anime, ModalProps } from '../../model/animes';
+import { api } from '../../services/anime-schedule-api';
+import { Container, style } from './style';
 
 export function BasicModal(props: ModalProps) {
   const [Animes, setAnimes] = React.useState<Anime>();

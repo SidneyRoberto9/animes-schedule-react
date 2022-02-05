@@ -1,2 +1,4 @@
-import { Tab, Tabs } from "@mui/material";
-import styled from "styled-components";
+import styled from 'styled-components';
+
+import { Tab, Tabs } from '@mui/material';
+

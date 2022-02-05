@@ -1,15 +1,10 @@
-import * as React from "react";
-import {
-  AppBar,
-  Box,
-  createTheme,
-  Tab,
-  Tabs,
-  ThemeProvider,
-} from "@mui/material";
-import { MediaCard } from "../card";
-import { api } from "../../services/anime-schedule-api";
-import { Anime } from "../../model/animes";
+import * as React from 'react';
+
+import { AppBar, Box, createTheme, Tab, Tabs, ThemeProvider } from '@mui/material';
+
+import { Anime } from '../../model/animes';
+import { api } from '../../services/anime-schedule-api';
+import { MediaCard } from '../card';
 
 const theme = createTheme({
   palette: {
@@ -34,7 +29,7 @@ export function TabsButton() {
   return (
     <ThemeProvider theme={theme}>
       <Box width="100%">
-        <AppBar position="static">
+        <AppBar position="static" sx={{ background: "#121212" }}>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -42,18 +37,23 @@ export function TabsButton() {
             scrollButtons={false}
             textColor="primary"
             indicatorColor="primary"
-            allowScrollButtonsMobile
-            centered={true}
-            sx={{ bgcolor: "#121212" }}
+            allowScrollButtonsMobile={true}
+            sx={{
+              background: "#121212",
+              m: "0 auto",
+              "@media (max-width: 420px)": {
+                m: "0",
+              },
+            }}
           >
-            <Tab label="todos" sx={{ color: "#fff" }} />
-            <Tab label="Segunda" sx={{ color: "#fff" }} />
-            <Tab label="Terça" sx={{ color: "#fff" }} />
-            <Tab label="Quarta" sx={{ color: "#fff" }} />
-            <Tab label="Quinta" sx={{ color: "#fff" }} />
-            <Tab label="Sexta" sx={{ color: "#fff" }} />
-            <Tab label="Sábado" sx={{ color: "#fff" }} />
-            <Tab label="Domingo" sx={{ color: "#fff" }} />
+            <Tab label="todos" sx={{ color: "#ababab" }} />
+            <Tab label="Segunda" sx={{ color: "#ababab" }} />
+            <Tab label="Terça" sx={{ color: "#ababab" }} />
+            <Tab label="Quarta" sx={{ color: "#ababab" }} />
+            <Tab label="Quinta" sx={{ color: "#ababab" }} />
+            <Tab label="Sexta" sx={{ color: "#ababab" }} />
+            <Tab label="Sábado" sx={{ color: "#ababab" }} />
+            <Tab label="Domingo" sx={{ color: "#ababab" }} />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>

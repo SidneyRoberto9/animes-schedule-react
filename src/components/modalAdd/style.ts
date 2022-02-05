@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   .MuiButton-root {
     position: absolute;
-    top: 2%;
+    top: 5px;
     right: 2%;
     background-color: #f0f8ff;
     &:hover {
