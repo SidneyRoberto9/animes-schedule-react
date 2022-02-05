@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const AppStyle = createGlobalStyle`
     .App {
@@ -8,7 +8,7 @@ export const AppStyle = createGlobalStyle`
     .App-header {
         height: 100%;
         display: flex;
-        flex-direction: row nowrap;
+        flex-direction: row;
         justify-content: flex-start;
         font-size: calc(10px + 2vmin);
         color: white;

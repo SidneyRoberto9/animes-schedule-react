@@ -1,10 +1,10 @@
-import * as React from 'react';
+import * as React from "react";
+import { AppBar, createTheme, Tab, Tabs, ThemeProvider } from "@mui/material";
 
-import { AppBar, Box, createTheme, Tab, Tabs, ThemeProvider } from '@mui/material';
-
-import { Anime } from '../../model/animes';
-import { api } from '../../services/anime-schedule-api';
-import { MediaCard } from '../card';
+import { Anime } from "../../model/animes";
+import { api } from "../../services/anime-schedule-api";
+import { MediaCard } from "../card";
+import { Container } from "./style";
 
 const theme = createTheme({
   palette: {
@@ -20,7 +20,7 @@ export function TabsButton() {
 
   React.useEffect(() => {
     api.get("animes").then((response) => setAnimes(response.data));
-  }, []);
+  }, [Animes]);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -28,7 +28,7 @@ export function TabsButton() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box width="100%">
+      <div style={{ width: "100%" }}>
         <AppBar position="static" sx={{ background: "#121212" }}>
           <Tabs
             value={value}
@@ -80,12 +80,12 @@ export function TabsButton() {
         <TabPanel value={value} index={7}>
           <MediaCard animes={Animes} day="domingo" />
         </TabPanel>
-      </Box>
+      </div>
     </ThemeProvider>
   );
 }
 
 function TabPanel(props: any) {
   const { children, value, index } = props;
-  return <div>{value === index && <div>{children}</div>}</div>;
+  return <>{value === index && <Container>{children}</Container>}</>;
 }

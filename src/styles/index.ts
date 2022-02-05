@@ -1,7 +1,10 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const IndexStyle = createGlobalStyle`
     body {
+      
+      position: relative;
+      padding-bottom: 30px;
       margin: 0;
       width: 100%;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

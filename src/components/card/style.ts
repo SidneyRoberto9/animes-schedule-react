@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+
   .card-anime {
     background-color: #1f1f1f;
     display: flex;
@@ -31,10 +35,36 @@ export const Container = styled.div`
       transform: translateY(-10px);
       width: 210px;
       height: 370px;
-      margin: 20px;
+      margin: 25px;
 
       img {
         filter: saturate(135%);
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    .card-anime {
+      width: 200px;
+      height: 300px;
+      margin: 13px;
+      border-radius: 20px;
+
+      .title {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      img {
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+      }
+      &:hover {
+        transform: translateY(-5px);
+        width: 210px;
+        height: 310px;
+        margin: 9.3px;
       }
     }
   }

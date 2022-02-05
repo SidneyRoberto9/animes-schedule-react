@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { Tab, Tabs } from '@mui/material';
-
+export const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+`;

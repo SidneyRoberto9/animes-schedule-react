@@ -1,10 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.footer`
   position: fixed;
   bottom: 0;
-
-  width: 99.9%;
+  width: 99.8%;
   height: 80px;
   border: 1px solid #000;
 
