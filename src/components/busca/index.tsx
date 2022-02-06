@@ -1,9 +1,17 @@
-import { Container } from "./stlyle";
+import { Container, Top, Mid } from "./stlyle";
+
+import Icon from "@material-ui/core/Icon";
 
 export const Busca = () => {
   return (
     <Container>
-      <h1>EM CONSTRUÇÃO</h1>
+      <Top>
+        <input type="search" name="busca" placeholder="Search..." />
+        <button>
+          <Icon>search</Icon>
+        </button>
+      </Top>
+      <Mid></Mid>
     </Container>
   );
 };
