@@ -24,7 +24,8 @@ export const Busca = () => {
     setValue(search);
   }
 
-  function GetCard() {
+  useEffect(() => {
+    // other code
     jikan.get("/anime?q=" + search).then((res) => {
       const data = res.data.data;
       console.log(data);
@@ -45,10 +46,7 @@ export const Busca = () => {
       });
       setAnimes(anime);
     });
-  }
-
-  useEffect(() => {
-    GetCard();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   return (
