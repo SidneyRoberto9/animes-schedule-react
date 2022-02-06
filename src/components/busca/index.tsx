@@ -12,7 +12,7 @@ export const Busca = () => {
   const [search, setSearch] = useState("");
 
   function handleChange(event: any) {
-    if (event.key == "Enter") {
+    if (event.key === "Enter") {
       setSearch(event.target.value);
       setValue(event.target.value);
     } else {
@@ -24,7 +24,7 @@ export const Busca = () => {
     setValue(search);
   }
 
-  useEffect(() => {
+  function GetCard() {
     jikan.get("/anime?q=" + search).then((res) => {
       const data = res.data.data;
       console.log(data);
@@ -45,6 +45,10 @@ export const Busca = () => {
       });
       setAnimes(anime);
     });
+  }
+
+  useEffect(() => {
+    GetCard();
   }, [value]);
 
   return (
