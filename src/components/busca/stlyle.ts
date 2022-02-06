@@ -47,4 +47,6 @@ export const Top = styled.header`
   }
 `;
 
-export const Mid = styled.main``;
+export const Mid = styled.main`
+  padding-top: 40px;
+`;
