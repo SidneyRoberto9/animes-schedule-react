@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -12,7 +12,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 23px;
-    width: 200px;
+    width: 190px;
     height: 360px;
     overflow: hidden;
     margin: 10px;
@@ -44,10 +44,23 @@ export const Container = styled.div`
       }
     }
   }
+  @media (max-width: 1024px) {
+    .card-anime {
+      width: 180px;
+      height: 350px;
+      margin: 7px;
+      &:hover {
+        width: 190px;
+        height: 360px;
+        margin: 2px;
+      }
+    }
+  }
+
   @media (max-width: 500px) {
     .card-anime {
-      width: 155px;
-      height: 285px;
+      max-width: 155px;
+      max-height: 285px;
       min-width: 155px;
       min-height: 285px;
       margin: 12px;

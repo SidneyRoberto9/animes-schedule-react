@@ -1,7 +1,7 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import { useHistory } from "react-router-dom";
 
-import { Container } from './style';
+import { Container } from "./style";
 
 export function Navegation() {
   const history = useHistory();
@@ -11,19 +11,21 @@ export function Navegation() {
   };
 
   return (
-    <Container>
-      <footer className="list">
-        <input
-          type="button"
-          onClick={() => handlePagina("/")}
-          value="Calendário"
-        />
-        <input
-          type="button"
-          onClick={() => handlePagina("/search")}
-          value="Busca"
-        />
-      </footer>
-    </Container>
+    <footer style={{ height: 80 }}>
+      <Container>
+        <div className="list">
+          <input
+            type="button"
+            onClick={() => handlePagina("/")}
+            value="Calendário"
+          />
+          <input
+            type="button"
+            onClick={() => handlePagina("/search")}
+            value="Busca"
+          />
+        </div>
+      </Container>
+    </footer>
   );
 }
