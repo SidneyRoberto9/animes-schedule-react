@@ -29,7 +29,7 @@ export function TabsButton() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ width: "100%", padding: 0, margin: 0 }}>
+      <Container>
         <AppBar position="static" sx={{ background: "#121212" }}>
           <Tabs
             value={value}
@@ -84,7 +84,7 @@ export function TabsButton() {
         <TabPanel value={value} index={7}>
           <MediaCard animes={Animes} day="domingo" />
         </TabPanel>
-      </div>
+      </Container>
     </ThemeProvider>
   );
 }
