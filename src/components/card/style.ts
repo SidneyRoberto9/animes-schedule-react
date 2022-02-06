@@ -15,9 +15,10 @@ export const Container = styled.div`
     width: 190px;
     height: 360px;
     overflow: hidden;
-    margin: 10px;
+    margin: 8px;
     cursor: pointer;
     img {
+      transition: 0.5s;
       width: 100%;
       height: 80%;
       object-fit: cover;
@@ -33,14 +34,9 @@ export const Container = styled.div`
     }
 
     &:hover {
-      transition: 0.3s;
-      transform: translateY(-10px);
-      width: 210px;
-      height: 370px;
-      margin: 5px;
-
       img {
-        filter: saturate(135%);
+        height: 1000%;
+        filter: saturate(150%);
       }
     }
   }
@@ -49,11 +45,6 @@ export const Container = styled.div`
       width: 180px;
       height: 350px;
       margin: 7px;
-      &:hover {
-        width: 190px;
-        height: 360px;
-        margin: 2px;
-      }
     }
   }
 
@@ -76,14 +67,6 @@ export const Container = styled.div`
         width: 100%;
         height: 80%;
         object-fit: cover;
-      }
-      &:hover {
-        transform: translateY(-5px);
-        width: 155px;
-        height: 285px;
-        min-width: 155px;
-        min-height: 285px;
-        margin: 9.3px;
       }
     }
   }
