@@ -5,7 +5,7 @@ import { AppBar, createTheme, Tab, Tabs, ThemeProvider } from "@mui/material";
 import { Anime } from "../../model/animes";
 import { api } from "../../services/anime-schedule-api";
 import { MediaCard } from "../card";
-import { Container } from "./style";
+import { Container, CardDisplay } from "./style";
 
 const theme = createTheme({
   palette: {
@@ -91,5 +91,5 @@ export function TabsButton() {
 
 function TabPanel(props: any) {
   const { children, value, index } = props;
-  return <>{value === index && <Container>{children}</Container>}</>;
+  return <>{value === index && <CardDisplay>{children}</CardDisplay>}</>;
 }

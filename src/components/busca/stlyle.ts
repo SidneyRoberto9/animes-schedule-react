@@ -48,5 +48,28 @@ export const Top = styled.header`
 `;
 
 export const Mid = styled.main`
+  width: 98%;
+  display: flex;
+  margin: 0 auto;
   padding-top: 40px;
+
+  @media (max-width: 1601px) {
+    width: 79%;
+  }
+
+  @media (max-width: 1367px) {
+    width: 78%;
+  }
+
+  @media (max-width: 1281px) {
+    width: 77%;
+  }
+
+  @media (max-width: 1025px) {
+    width: 76%;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
