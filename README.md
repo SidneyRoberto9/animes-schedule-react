@@ -1,46 +1,119 @@
-# Getting Started with Create React App
+<div align="right">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Portuguese](https://cdn-icons-png.flaticon.com/32/3022/3022546.png)](README.md)
 
-## Available Scripts
+</div>
+<p align="center"> 
+  <a href="https://github.com/SidneyRoberto9">
+    <img alt="Developed by Sidney Roberto" src="https://img.shields.io/badge/Developer-Sidney_Roberto-%3498db?color=3498db&style=for-the-badge&label=Desenvolvedor">
+  </a>  
+  <img alt="Project License" src="https://img.shields.io/apm/l/vim-mode?style=for-the-badge&label=licen%C3%A7a"/>   
+  <img alt="Project Status" src="https://img.shields.io/badge/Finalizado-498db?color=green&style=for-the-badge&label=Status">
 
-In the project directory, you can run:
+## </p>
 
-### `yarn start`
+## **Visualizar**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<div align="center">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Deploy do front-end efetuado no [Vercel](https://vercel.com/) para visualizar: [Clique Aqui](https://animes-schedule-react.vercel.app/)
 
-### `yarn test`
+|                              :computer:Desktop                              |                              :iphone: Mobile                               |
+| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------: |
+|  <kbd><img src=".github/previews/desktop-preview.png" alt="Tablet"/></kbd>  |  <kbd><img src=".github/previews/mobile-preview.png" alt="Mobile"/></kbd>  |
+| <kbd><img src=".github/previews/desktop-preview-2.png" alt="Tablet"/></kbd> | <kbd><img src=".github/previews/mobile-preview-2.png" alt="Mobile"/></kbd> |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+</div>
+  
+---
+## _Sobre_
 
-### `yarn build`
+<div align="center">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aplicação feita em React para visualizar os animes lançados da temporada atual, em cada dia da semana, consumindo uma api de um back-end proprio [`Animes Schendule Api`](https://github.com/SidneyRoberto9/animes-schedule-api).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+</div>
 
-### `yarn eject`
+</div>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## **Executar**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<div align="center">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para executar esse projeto você precisa baixar este repositório, ter o Gerenciador de Pacotes do Node ([`NPM`](https://www.npmjs.com/get-npm)) ou o Gerenciador de Pacotes YARN ([`YARN`](https://yarnpkg.com/getting-started)) instalado.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Abra o prompt de comando no diretório do projeto na pasta <code>animes-schedule-react</code>, e execute os seguintes códigos:
 
-## Learn More
+<details>
+  <summary><i>com <b>npm</b></i></summary>
+  
+  ```bash
+  # Instalar dependências
+  $ npm install ou npm i
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Iniciar o servidor de desenvolvimento
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+$ npm start
+
+````
+
+</details>
+
+<details>
+<summary><i>com <b>yarn</b></i></summary>
+
+```bash
+# Instalar dependências
+$ yarn install
+
+# Iniciar o servidor de desenvolvimento
+$ yarn start
+
+````
+
+</details>
+
+> ⚠️ O servidor de desenvolvimento será iniciado na porta: 3000 - Acesse <http://localhost:3000>
+
+</div>
+
+---
+
+## _Tecnologias_
+
+<div align="center">
+
+|                      FrontEnd                       |
+| :-------------------------------------------------: |
+|         [React](https://pt-br.reactjs.org/)         |
+|         [Mui Material](https://mui.com/pt/)         |
+|  [Typescript 4.4](https://www.typescriptlang.org/)  |
+|   [Axios](https://axios-http.com/ptbr/docs/intro)   |
+| [Styled Components](https://styled-components.com/) |
+
+</div>
+
+---
+
+## _Meus Contatos_
+
+<div align="center">
+
+[![Linkedin Badge](https://img.shields.io/badge/-Sidney_Roberto-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/sidney-roberto-147076145/)
+[![Github Badge](https://img.shields.io/badge/-Sidney_Roberto-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/SidneyRoberto9)
+[![Outlook Badge](https://img.shields.io/badge/-Sidney_Roberto-0078d4?style=flat-square&logo=microsoft-outlook&logoColor=white)](mailto:sidneyrpsilva@gmail.com)
+
+</div>
+
+---
+
+## _Licença_
+
+<div align="center">
+
+Copyright ©️ 2021 [ Sidney Roberto ](https://github.com/SidneyRoberto9).<br />
+This project is licensed by [MIT](./LICENSE).
+
+</div>
