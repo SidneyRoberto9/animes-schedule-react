@@ -3,7 +3,7 @@ import { MediaCard } from "../card";
 import { useEffect, useState } from "react";
 import { Anime } from "../../model/animes";
 import { Container, Top, Mid } from "./stlyle";
-import { jikan } from "../../services/anime-schedule-api";
+import { jikanSearch } from "../../services/anime-schedule-api";
 import { Jikan } from "../../model/jikan";
 
 export const Busca = () => {
@@ -26,9 +26,8 @@ export const Busca = () => {
 
   useEffect(() => {
     // other code
-    jikan.get("/anime?q=" + search).then((res) => {
+    jikanSearch.get("anime?q=" + search).then((res) => {
       const data = res.data.data;
-      console.log(data);
       const anime: Anime[] = data.map((anime: Jikan) => {
         return {
           _id: anime.mal_id,

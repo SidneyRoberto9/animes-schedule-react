@@ -35,7 +35,22 @@ export const CardDisplay = styled.div`
     width: 76%;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 415px) {
+    padding-left: 30px;
+    width: 100%;
+  }
+
+  @media (max-width: 391px) {
+    padding-left: 10px;
+    width: 100%;
+  }
+
+  @media (max-width: 376px) {
+    width: 100%;
+  }
+
+  @media (max-width: 361px) {
+    padding-left: 0px;
     width: 100%;
   }
 `;

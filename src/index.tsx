@@ -4,15 +4,18 @@ import { BrowserRouter } from "react-router-dom";
 
 import { App } from "./App";
 import { AnimeContextProvider } from "./context/anime";
+import { JikanContextProvider } from "./context/jikan";
 import { IndexStyle } from "./styles/index";
 
 ReactDOM.render(
   <React.StrictMode>
     <AnimeContextProvider>
-      <BrowserRouter>
-        <App />
-        <IndexStyle />
-      </BrowserRouter>
+      <JikanContextProvider>
+        <BrowserRouter>
+          <App />
+          <IndexStyle />
+        </BrowserRouter>
+      </JikanContextProvider>
     </AnimeContextProvider>
   </React.StrictMode>,
   document.getElementById("root")

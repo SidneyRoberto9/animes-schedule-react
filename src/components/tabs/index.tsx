@@ -4,6 +4,7 @@ import { Container, CardDisplay } from "./style";
 import { Filter } from "../filtro";
 import { AnimeContext } from "../../context/anime";
 import { useContext, useState } from "react";
+import { jikanContext } from "../../context/jikan";
 
 const theme = createTheme({
   palette: {
@@ -16,6 +17,7 @@ const theme = createTheme({
 export function TabsButton() {
   const [value, setValue] = useState(0);
   const { Animes, animesBase } = useContext(AnimeContext);
+  const { Jikan } = useContext(jikanContext);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -58,7 +60,7 @@ export function TabsButton() {
 
         <TabPanel value={value} index={0}>
           <Filter />
-          <MediaCard animes={Animes} day="todos" />
+          <MediaCard animes={Jikan} day="todos" />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <MediaCard animes={Animes} day="segunda" />

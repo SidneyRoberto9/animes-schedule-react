@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AnimeContext } from "../../context/anime";
+import { jikanContext } from "../../context/jikan";
 import { Container } from "./style";
 
 export function Filter() {
-  const { filterAnime, animesBase } = useContext(AnimeContext);
+  const { jikanBase, filterAnime } = useContext(jikanContext);
   const [year, setYear] = useState("");
   const [premiered, setPremiered] = useState("");
 
@@ -51,7 +52,7 @@ export function Filter() {
       </select>
 
       <button onClick={filtrar}> Aplicar </button>
-      <button onClick={animesBase}> Remover </button>
+      <button onClick={jikanBase}> Remover </button>
     </Container>
   );
 }
