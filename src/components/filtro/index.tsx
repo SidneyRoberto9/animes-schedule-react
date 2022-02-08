@@ -30,6 +30,9 @@ export function Filter() {
             {row}
           </option>
         ))}
+        <option value={selectYear[0]} selected>
+          ------
+        </option>
       </select>
 
       <select
@@ -42,6 +45,9 @@ export function Filter() {
             {season.pt}
           </option>
         ))}
+        <option value={selectPremier[2].en} selected>
+          -------
+        </option>
       </select>
 
       <button onClick={filtrar}> Aplicar </button>
