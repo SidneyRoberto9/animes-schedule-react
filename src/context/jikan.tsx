@@ -86,6 +86,7 @@ export function JikanContextProvider({ children }: jikanContextProps) {
 
   useEffect(() => {
     jikanBase();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
