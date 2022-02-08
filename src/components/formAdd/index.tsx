@@ -23,9 +23,9 @@ export function FormAdd() {
         <Input name="title" label="Titulo" />
         <Input name="image_url" label="Url Image" />
         <Input name="weekday" label="Dia da Semana" />
-        <Input name="airing" label="Esta lançando?" />
-        <Input name="year" label="Ano de lançamento" />
-        <Input name="premiered" label="temporada de Lançamento" />
+        <Input name="airing" label="Esta lançando? (true or false)" />
+        <Input name="year" label="Ano" />
+        <Input name="premiered" label="Estação" />
         <Scope path="external_links[0]">
           <Input name="nome" label="External Nome do Site" />
           <Input name="url" label="External URL do Site" />
