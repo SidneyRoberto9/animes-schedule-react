@@ -1,5 +1,5 @@
-import { AnimeProps } from '../../model/animes';
-import { Container } from './style';
+import { AnimeProps } from "../../model/animes";
+import { Container } from "./style";
 
 export function MediaCard(animes: AnimeProps) {
   function ViewAnime(url: string) {

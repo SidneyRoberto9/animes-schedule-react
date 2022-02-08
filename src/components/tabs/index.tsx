@@ -1,11 +1,9 @@
-import * as React from "react";
-
 import { AppBar, createTheme, Tab, Tabs, ThemeProvider } from "@mui/material";
-
-import { Anime } from "../../model/animes";
-import { api } from "../../services/anime-schedule-api";
 import { MediaCard } from "../card";
 import { Container, CardDisplay } from "./style";
+import { Filter } from "../filtro";
+import { AnimeContext } from "../../context/anime";
+import { useContext, useState } from "react";
 
 const theme = createTheme({
   palette: {
@@ -16,12 +14,8 @@ const theme = createTheme({
 });
 
 export function TabsButton() {
-  const [value, setValue] = React.useState(0);
-  const [Animes, setAnimes] = React.useState<Anime[]>([]);
-
-  React.useEffect(() => {
-    api.get("animes").then((response) => setAnimes(response.data));
-  }, [Animes]);
+  const [value, setValue] = useState(0);
+  const { Animes, animesBase } = useContext(AnimeContext);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -34,6 +28,7 @@ export function TabsButton() {
           <Tabs
             value={value}
             onChange={handleChange}
+            onClick={animesBase}
             variant="scrollable"
             scrollButtons={true}
             textColor="primary"
@@ -50,17 +45,19 @@ export function TabsButton() {
               },
             }}
           >
-            <Tab label="todos" sx={{ color: "#ababab" }} />
-            <Tab label="Segunda" sx={{ color: "#ababab" }} />
-            <Tab label="Terça" sx={{ color: "#ababab" }} />
-            <Tab label="Quarta" sx={{ color: "#ababab" }} />
-            <Tab label="Quinta" sx={{ color: "#ababab" }} />
-            <Tab label="Sexta" sx={{ color: "#ababab" }} />
-            <Tab label="Sábado" sx={{ color: "#ababab" }} />
-            <Tab label="Domingo" sx={{ color: "#ababab" }} />
+            <Tab label="todos" />
+            <Tab label="Segunda" />
+            <Tab label="Terça" />
+            <Tab label="Quarta" />
+            <Tab label="Quinta" />
+            <Tab label="Sexta" />
+            <Tab label="Sábado" />
+            <Tab label="Domingo" />
           </Tabs>
         </AppBar>
+
         <TabPanel value={value} index={0}>
+          <Filter />
           <MediaCard animes={Animes} day="todos" />
         </TabPanel>
         <TabPanel value={value} index={1}>

@@ -4,7 +4,7 @@ export interface Anime {
   image_url: string;
   weekday: string;
   airing: boolean;
-  year: number;
+  year: string;
   premiered: string;
   external_links: link[];
 }
