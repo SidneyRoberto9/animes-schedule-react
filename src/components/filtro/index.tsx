@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { AnimeContext } from "../../context/anime";
+import { useContext, useState } from "react";
 import { jikanContext } from "../../context/jikan";
 import { Container } from "./style";
 
