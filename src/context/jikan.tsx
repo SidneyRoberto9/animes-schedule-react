@@ -29,6 +29,7 @@ export function JikanContextProvider({ children }: jikanContextProps) {
 
   function formatLink(link: string) {
     link = link.toLowerCase();
+    link = link.replace(" (tv)", "");
     link = link.replace(/:/g, "");
     link = link.replace(/ /g, "-");
 
