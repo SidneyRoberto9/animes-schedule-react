@@ -1,6 +1,7 @@
-import React, { createContext, useState, useEffect, ReactNode } from "react";
-import { Anime } from "../model/animes";
-import { api } from "../services/anime-schedule-api";
+import React, { createContext, ReactNode, useEffect, useState } from 'react';
+
+import { Anime } from '../model/animes';
+import { api } from '../services/anime-schedule-api';
 
 interface AnimeContextData {
   Animes: Anime[];

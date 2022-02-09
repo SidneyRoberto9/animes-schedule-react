@@ -1,7 +1,7 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { Container } from "./style";
+import { Container } from './style';
 
 export function Navegation() {
   const history = useHistory();

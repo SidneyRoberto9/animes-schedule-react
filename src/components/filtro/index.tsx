@@ -1,6 +1,7 @@
-import { useContext, useState } from "react";
-import { jikanContext } from "../../context/jikan";
-import { Container } from "./style";
+import { useContext, useState } from 'react';
+
+import { jikanContext } from '../../context/jikan';
+import { Container } from './style';
 
 export function Filter() {
   const { jikanBase, filterAnime } = useContext(jikanContext);

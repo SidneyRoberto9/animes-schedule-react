@@ -1,10 +1,12 @@
-import { AppBar, createTheme, Tab, Tabs, ThemeProvider } from "@mui/material";
-import { MediaCard } from "../card";
-import { Container, CardDisplay } from "./style";
-import { Filter } from "../filtro";
-import { AnimeContext } from "../../context/anime";
-import { useContext, useState } from "react";
-import { jikanContext } from "../../context/jikan";
+import { useContext, useState } from 'react';
+
+import { AppBar, createTheme, Tab, Tabs, ThemeProvider } from '@mui/material';
+
+import { AnimeContext } from '../../context/anime';
+import { jikanContext } from '../../context/jikan';
+import { MediaCard } from '../card';
+import { Filter } from '../filtro';
+import { CardDisplay, Container } from './style';
 
 const theme = createTheme({
   palette: {

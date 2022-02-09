@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { Scope } from "@unform/core";
-import { Form } from "@unform/web";
+import { Scope } from '@unform/core';
+import { Form } from '@unform/web';
 
-import { Anime } from "../../model/animes";
-import { api } from "../../services/anime-schedule-api";
-import { Input } from "../input";
-import { Container } from "./style";
+import { Anime } from '../../model/animes';
+import { api } from '../../services/anime-schedule-api';
+import { Input } from '../input';
+import { Container } from './style';
 
 export function FormAdd() {
   function handleSubmit(data: Anime, { reset }: any) {

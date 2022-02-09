@@ -1,7 +1,8 @@
-import { createContext, useState, useEffect, ReactNode } from "react";
-import { Anime } from "../model/animes";
-import { Jikan } from "../model/jikan";
-import { jikanSeason } from "../services/anime-schedule-api";
+import { createContext, ReactNode, useEffect, useState } from 'react';
+
+import { Anime } from '../model/animes';
+import { Jikan } from '../model/jikan';
+import { jikanSeason } from '../services/anime-schedule-api';
 
 interface JikanContextData {
   Jikan: Anime[];
@@ -23,8 +24,8 @@ interface filterProps {
 }
 
 export function JikanContextProvider({ children }: jikanContextProps) {
-  const ActualSeason = "2022/winter";
   const [Jikan, setJikan] = useState<Anime[]>([]);
+  const ActualSeason = "2022/winter";
   const BetterAnimeLink = "https://betteranime.net/anime/legendado/";
 
   function formatLink(link: string) {
@@ -39,6 +40,7 @@ export function JikanContextProvider({ children }: jikanContextProps) {
   function filterAnime(props: filterProps) {
     const premieredSeason = props.premiered.toLowerCase();
     const season = props.year + "/" + premieredSeason;
+
     jikanSeason.get(season).then((response) => {
       const data = response.data.data;
       const anime: Anime[] = data.map((anime: Jikan) => {
