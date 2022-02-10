@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import Icon from '@material-ui/core/Icon';
+import Icon from "@material-ui/core/Icon";
 
-import { Anime } from '../../model/animes';
-import { Jikan } from '../../model/jikan';
-import { jikanSearch } from '../../services/anime-schedule-api';
-import { MediaCard } from '../card';
-import { Container, Mid, Top } from './stlyle';
+import { Anime } from "../../model/animes";
+import { Jikan } from "../../model/jikan";
+import { jikanSearch } from "../../services/anime-schedule-api";
+import { MediaCard } from "../card";
+import { Container, Mid, Top } from "./stlyle";
 
 export const Busca = () => {
   const [Animes, setAnimes] = useState<Anime[]>([]);
