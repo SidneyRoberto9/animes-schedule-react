@@ -59,7 +59,6 @@ export function TabsButton() {
             <Tab label="Domingo" />
           </Tabs>
         </AppBar>
-
         <TabPanel value={value} index={0}>
           <Filter />
           <MediaCard animes={Jikan} day="todos" />

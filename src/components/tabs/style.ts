@@ -14,43 +14,33 @@ export const Container = styled.div`
 `;
 
 export const CardDisplay = styled.div`
-  width: 98%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 
-  @media (max-width: 1601px) {
-    width: 79%;
-  }
-
-  @media (max-width: 1367px) {
-    width: 78%;
-  }
-
-  @media (max-width: 1280px) {
-    width: 77%;
-  }
-
-  @media (max-width: 1025px) {
-    width: 76%;
-  }
-
-  @media (max-width: 415px) {
-    padding-left: 30px;
-    width: 100%;
-  }
-
-  @media (max-width: 391px) {
-    padding-left: 10px;
-    width: 100%;
-  }
-
-  @media (max-width: 376px) {
-    width: 100%;
-  }
-
-  @media (max-width: 361px) {
+  @media (min-width: 1201px) {
     padding-left: 0px;
+    width: 60%;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    padding-left: 0;
+    width: 70%;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    padding-left: 0;
+    width: 80%;
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    padding-left: 0;
+    width: 90%;
+  }
+
+  @media (min-width: 360px) and (max-width: 480px) {
+    padding-left: 0;
     width: 100%;
   }
 `;
