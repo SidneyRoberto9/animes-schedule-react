@@ -1,25 +1,16 @@
-import { useContext, useState } from 'react';
-
-import { AppBar, createTheme, Tab, Tabs, ThemeProvider } from '@mui/material';
-
-import { AnimeContext } from '../../context/anime';
-import { jikanContext } from '../../context/jikan';
-import { MediaCard } from '../card';
-import { Filter } from '../filtro';
-import { CardDisplay, Container } from './style';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#e3f2fd",
-    },
-  },
-});
+import { useContext, useState } from "react";
+import { AppBar, Tab, Tabs, ThemeProvider } from "@mui/material";
+import ClipLoader from "react-spinners/ClipLoader";
+import { AnimeContext } from "../../context/anime";
+import { jikanContext } from "../../context/jikan";
+import { MediaCard } from "../card";
+import { Filter } from "../filtro";
+import { CardDisplay, Container, override, theme } from "./style";
 
 export function TabsButton() {
   const [value, setValue] = useState(0);
   const { Animes, animesBase } = useContext(AnimeContext);
-  const { Jikan } = useContext(jikanContext);
+  const { Jikan, isLoading } = useContext(jikanContext);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -61,7 +52,11 @@ export function TabsButton() {
         </AppBar>
         <TabPanel value={value} index={0}>
           <Filter />
-          <MediaCard animes={Jikan} day="todos" />
+          {isLoading === false ? (
+            <MediaCard animes={Jikan} day="todos" />
+          ) : (
+            <ClipLoader color={"#121212"} css={override} size={200} />
+          )}
         </TabPanel>
         <TabPanel value={value} index={1}>
           <MediaCard animes={Animes} day="segunda" />

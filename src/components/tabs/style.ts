@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { css } from "@emotion/react";
+import { createTheme } from "@mui/material";
 
 export const Container = styled.div`
   width: 100%;
@@ -43,4 +45,19 @@ export const CardDisplay = styled.div`
     padding-left: 0;
     width: 100%;
   }
+`;
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#e3f2fd",
+    },
+  },
+});
+
+export const override = css`
+  display: block;
+  margin: 0 auto;
+  align-self: center;
+  margin-top: 25%;
 `;

@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { css } from "@emotion/react";
 
 export const Container = styled.body`
   header {
@@ -19,8 +20,9 @@ export const Top = styled.header`
   }
 
   input {
-    left: 10%;
-    width: 80%;
+    left: 14%;
+    width: 70%;
+    margin: 0 auto;
     border: none;
     padding-left: 10px;
     font-size: 0.9em;
@@ -28,7 +30,7 @@ export const Top = styled.header`
   }
 
   button {
-    left: 90%;
+    left: 80%;
     width: 50px;
     cursor: pointer;
     border: none;
@@ -48,28 +50,35 @@ export const Top = styled.header`
 `;
 
 export const Mid = styled.main`
-  width: 98%;
+  max-width: 100%;
   display: flex;
   margin: 0 auto;
   padding-top: 40px;
 
-  @media (max-width: 1601px) {
+  @media (min-width: 1201px) {
     width: 79%;
   }
 
-  @media (max-width: 1367px) {
-    width: 78%;
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    width: 70%;
   }
 
-  @media (max-width: 1281px) {
-    width: 77%;
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 80%;
   }
 
-  @media (max-width: 1025px) {
-    width: 76%;
+  @media (min-width: 481px) and (max-width: 768px) {
+    width: 90%;
   }
 
-  @media (max-width: 500px) {
+  @media (min-width: 360px) and (max-width: 480px) {
     width: 100%;
   }
+`;
+
+export const override = css`
+  display: block;
+  margin: 0 auto;
+  align-self: center;
+  margin-top: 25%;
 `;

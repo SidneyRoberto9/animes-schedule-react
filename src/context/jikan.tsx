@@ -1,13 +1,14 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from "react";
 
-import { Anime } from '../model/animes';
-import { Jikan } from '../model/jikan';
-import { jikanSeason } from '../services/anime-schedule-api';
+import { Anime } from "../model/animes";
+import { Jikan } from "../model/jikan";
+import { jikanSeason } from "../services/anime-schedule-api";
 
 interface JikanContextData {
   Jikan: Anime[];
   filterAnime: (props: filterProps) => void;
   jikanBase: () => void;
+  isLoading: boolean;
 }
 
 export const jikanContext = createContext<JikanContextData>(
@@ -25,6 +26,7 @@ interface filterProps {
 
 export function JikanContextProvider({ children }: jikanContextProps) {
   const [Jikan, setJikan] = useState<Anime[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const ActualSeason = "2022/winter";
   const BetterAnimeLink = "https://betteranime.net/anime/legendado/";
 
@@ -37,11 +39,12 @@ export function JikanContextProvider({ children }: jikanContextProps) {
     return link;
   }
 
-  function filterAnime(props: filterProps) {
+  async function filterAnime(props: filterProps) {
     const premieredSeason = props.premiered.toLowerCase();
     const season = props.year + "/" + premieredSeason;
 
-    jikanSeason.get(season).then((response) => {
+    setIsLoading(true);
+    await jikanSeason.get(season).then((response) => {
       const data = response.data.data;
       const anime: Anime[] = data.map((anime: Jikan) => {
         const url = formatLink(anime.title);
@@ -59,13 +62,15 @@ export function JikanContextProvider({ children }: jikanContextProps) {
           ],
         };
       });
+      setIsLoading(false);
       setJikan(anime);
       // eslint-disable-next-line react-hooks/exhaustive-deps
     });
   }
 
-  function jikanBase() {
-    jikanSeason.get(ActualSeason).then((response) => {
+  async function jikanBase() {
+    setIsLoading(true);
+    await jikanSeason.get(ActualSeason).then((response) => {
       const data = response.data.data;
       const anime: Anime[] = data.map((anime: Jikan) => {
         const url = formatLink(anime.title);
@@ -83,6 +88,7 @@ export function JikanContextProvider({ children }: jikanContextProps) {
           ],
         };
       });
+      setIsLoading(false);
       setJikan(anime);
     });
   }
@@ -93,7 +99,7 @@ export function JikanContextProvider({ children }: jikanContextProps) {
   }, []);
 
   return (
-    <jikanContext.Provider value={{ Jikan, filterAnime, jikanBase }}>
+    <jikanContext.Provider value={{ Jikan, filterAnime, jikanBase, isLoading }}>
       {children}
     </jikanContext.Provider>
   );
