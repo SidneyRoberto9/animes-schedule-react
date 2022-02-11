@@ -1,11 +1,10 @@
-import React, { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from "react";
 
-import { Anime } from '../model/animes';
-import { api } from '../services/anime-schedule-api';
+import { Anime } from "../model/animes";
+import { api } from "../services/anime-schedule-api";
 
 interface AnimeContextData {
   Animes: Anime[];
-  filterAnime: (props: filterProps) => void;
   animesBase: () => void;
 }
 
@@ -17,27 +16,11 @@ type AnimeContextProps = {
   children: ReactNode;
 };
 
-interface filterProps {
-  year: string;
-  premiered: string;
-}
-
 export function AnimeContextProvider({ children }: AnimeContextProps) {
   const [Animes, setAnimes] = useState<Anime[]>([]);
 
-  function filterAnime(props: filterProps) {
-    api.get("animes").then((response) => {
-      setAnimes(
-        response.data.filter(
-          (anime: Anime) =>
-            anime.year === props.year && anime.premiered === props.premiered
-        )
-      );
-    });
-  }
-
-  function animesBase() {
-    api.get("animes").then((response) => {
+  async function animesBase() {
+    await api.get("animes").then((response) => {
       setAnimes(response.data);
     });
   }
@@ -47,7 +30,7 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
   }, []);
 
   return (
-    <AnimeContext.Provider value={{ Animes, filterAnime, animesBase }}>
+    <AnimeContext.Provider value={{ Animes, animesBase }}>
       {children}
     </AnimeContext.Provider>
   );
