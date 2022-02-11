@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react';
+import { useContext, useState } from "react";
 
-import { jikanContext } from '../../context/jikan';
-import { Container } from './style';
+import { jikanContext } from "../../context/jikan";
+import { Container } from "./style";
 
 export function Filter() {
   const { jikanBase, filterAnime } = useContext(jikanContext);
@@ -19,7 +19,7 @@ export function Filter() {
     { pt: "Verão", en: "Summer" },
   ];
   const selectYear = [];
-  for (let year = new Date().getFullYear(); year !== 1995; year--) {
+  for (let year = new Date().getFullYear(); year !== 1990; year--) {
     selectYear.push(year);
   }
 
@@ -31,7 +31,7 @@ export function Filter() {
             {row}
           </option>
         ))}
-        <option value={selectYear[0]} selected>
+        <option hidden value={selectYear[0]} selected>
           ------
         </option>
       </select>
@@ -46,7 +46,7 @@ export function Filter() {
             {season.pt}
           </option>
         ))}
-        <option value={selectPremier[2].en} selected>
+        <option hidden value={selectPremier[2].en} selected>
           -------
         </option>
       </select>
