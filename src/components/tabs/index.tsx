@@ -9,7 +9,7 @@ import { CardDisplay, Container, override, theme } from "./style";
 
 export function TabsButton() {
   const [value, setValue] = useState(0);
-  const { Animes, animesBase } = useContext(AnimeContext);
+  const { Animes, animesBase, isLoadingAnime } = useContext(AnimeContext);
   const { Jikan, isLoading } = useContext(jikanContext);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -50,6 +50,7 @@ export function TabsButton() {
             <Tab label="Domingo" />
           </Tabs>
         </AppBar>
+
         <TabPanel value={value} index={0}>
           <Filter />
           {isLoading === false ? (
@@ -58,27 +59,17 @@ export function TabsButton() {
             <ClipLoader color={"#121212"} css={override} size={200} />
           )}
         </TabPanel>
-        <TabPanel value={value} index={1}>
-          <MediaCard animes={Animes} day="segunda" />
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <MediaCard animes={Animes} day="terca" />
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          <MediaCard animes={Animes} day="quarta" />
-        </TabPanel>
-        <TabPanel value={value} index={4}>
-          <MediaCard animes={Animes} day="quinta" />
-        </TabPanel>
-        <TabPanel value={value} index={5}>
-          <MediaCard animes={Animes} day="sexta" />
-        </TabPanel>
-        <TabPanel value={value} index={6}>
-          <MediaCard animes={Animes} day="sabado" />
-        </TabPanel>
-        <TabPanel value={value} index={7}>
-          <MediaCard animes={Animes} day="domingo" />
-        </TabPanel>
+        {dayObj.map((week) => {
+          return (
+            <TabPanel value={value} index={week.dayNumber} key={week.dayNumber}>
+              {isLoadingAnime === false ? (
+                <MediaCard animes={Animes} day={week.day} />
+              ) : (
+                <ClipLoader color={"#121212"} css={override} size={200} />
+              )}
+            </TabPanel>
+          );
+        })}
       </Container>
     </ThemeProvider>
   );
@@ -88,3 +79,34 @@ function TabPanel(props: any) {
   const { children, value, index } = props;
   return <>{value === index && <CardDisplay>{children}</CardDisplay>}</>;
 }
+
+const dayObj = [
+  {
+    day: "segunda",
+    dayNumber: 1,
+  },
+  {
+    day: "terca",
+    dayNumber: 2,
+  },
+  {
+    day: "quarta",
+    dayNumber: 3,
+  },
+  {
+    day: "quinta",
+    dayNumber: 4,
+  },
+  {
+    day: "sexta",
+    dayNumber: 5,
+  },
+  {
+    day: "sabado",
+    dayNumber: 6,
+  },
+  {
+    day: "domingo",
+    dayNumber: 7,
+  },
+];
