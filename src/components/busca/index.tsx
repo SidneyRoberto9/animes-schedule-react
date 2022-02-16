@@ -13,6 +13,7 @@ export const Busca = () => {
     <Container>
       <Top>
         <input
+          spellCheck={false}
           type="search"
           name="busca"
           placeholder="Search..."
