@@ -24,6 +24,16 @@ export function SearchContextProvider({ children }: searchContextProps) {
   const [Animes, setAnimes] = useState<Anime[]>([]);
   const [value, setValue] = useState("");
   const [search, setSearch] = useState("");
+  const BetterAnimeLink = "https://betteranime.net/anime/legendado/";
+
+  function formatLink(link: string) {
+    link = link.toLowerCase();
+    link = link.replace(" (tv)", "");
+    link = link.replace(/:/g, "");
+    link = link.replace(/ /g, "-");
+
+    return link;
+  }
 
   function handleChange(event: any) {
     if (event.key === "Enter") {
@@ -41,6 +51,7 @@ export function SearchContextProvider({ children }: searchContextProps) {
     await jikanSearch.get("anime?q=" + search).then((res) => {
       const data = res.data.data;
       const anime: Anime[] = data.map((anime: Jikan) => {
+        const url = formatLink(anime.title);
         return {
           _id: anime.mal_id,
           title: anime.title,
@@ -50,7 +61,7 @@ export function SearchContextProvider({ children }: searchContextProps) {
           external_links: [
             {
               name: "MyAnimeList",
-              url: anime.url,
+              url: BetterAnimeLink + url,
             },
           ],
         };
