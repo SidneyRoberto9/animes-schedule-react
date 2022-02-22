@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import { Scope } from '@unform/core';
-import { Form } from '@unform/web';
+import { Scope } from "@unform/core";
+import { Form } from "@unform/web";
 
-import { Anime } from '../../model/animes';
-import { api } from '../../services/anime-schedule-api';
-import { Input } from '../input';
-import { Container } from './style';
+import { Anime } from "../../model/animes";
+import { api } from "../../services/anime-schedule-api";
+import { Input } from "../input";
+import { Container } from "./style";
 
 export function FormAdd() {
   function handleSubmit(data: Anime, { reset }: any) {
@@ -27,8 +27,8 @@ export function FormAdd() {
         <Input name="year" label="Ano" />
         <Input name="premiered" label="Estação" />
         <Scope path="external_links[0]">
-          <Input name="nome" label="External Nome do Site" />
-          <Input name="url" label="External URL do Site" />
+          <Input name="nome" label="Nome do Site Para Assistir" />
+          <Input name="url" label="Link do Site" />
         </Scope>
 
         <button type="submit">Save</button>
