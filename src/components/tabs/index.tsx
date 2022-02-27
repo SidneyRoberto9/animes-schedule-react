@@ -15,6 +15,7 @@ export function TabsButton() {
 
   useEffect(() => {
     setValue(getWeekDay());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
