@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppBar, Tab, Tabs, ThemeProvider } from "@mui/material";
 import ClipLoader from "react-spinners/ClipLoader";
 import { AnimeContext } from "../../context/anime";
@@ -9,8 +9,13 @@ import { CardDisplay, Container, override, theme } from "./style";
 
 export function TabsButton() {
   const [value, setValue] = useState(0);
-  const { Animes, animesBase, isLoadingAnime } = useContext(AnimeContext);
+  const { Animes, animesBase, getWeekDay, isLoadingAnime } =
+    useContext(AnimeContext);
   const { Jikan, isLoading } = useContext(jikanContext);
+
+  useEffect(() => {
+    setValue(getWeekDay());
+  }, []);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
