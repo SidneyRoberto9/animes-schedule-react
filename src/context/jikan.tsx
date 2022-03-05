@@ -66,6 +66,7 @@ export function JikanContextProvider({ children }: jikanContextProps) {
               year: anime.year,
               premiered: anime.season,
             });
+            return;
           });
           // eslint-disable-next-line react-hooks/exhaustive-deps
         });
@@ -100,6 +101,7 @@ export function JikanContextProvider({ children }: jikanContextProps) {
               year: anime.year,
               premiered: anime.season,
             });
+            return;
           });
           // eslint-disable-next-line react-hooks/exhaustive-deps
         });
