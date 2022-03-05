@@ -22,6 +22,7 @@ Deploy do front-end efetuado no [Vercel](https://vercel.com/) para visualizar: [
 | :-------------------------------------------------------------------------: | :------------------------------------------------------------------------: |
 |  <kbd><img src=".github/previews/desktop-preview.png" alt="Tablet"/></kbd>  |  <kbd><img src=".github/previews/mobile-preview.png" alt="Mobile"/></kbd>  |
 | <kbd><img src=".github/previews/desktop-preview-2.png" alt="Tablet"/></kbd> | <kbd><img src=".github/previews/mobile-preview-2.png" alt="Mobile"/></kbd> |
+| <kbd><img src=".github/previews/desktop-preview-3.png" alt="Tablet"/></kbd> | <kbd><img src=".github/previews/mobile-preview-3.png" alt="Mobile"/></kbd> |
 
 </div>
   
