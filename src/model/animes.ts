@@ -1,16 +1,16 @@
 export interface Anime {
-  _id: string;
+  _id: number;
   title: string;
   image_url: string;
   weekday: string;
   airing: boolean;
-  year: string;
+  year: number | undefined;
   premiered: string;
   external_links: link[];
 }
 
 interface link {
-  nome: string;
+  name: string;
   url: string;
 }
 
