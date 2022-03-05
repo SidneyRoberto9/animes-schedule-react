@@ -49,9 +49,7 @@ export function SearchContextProvider({ children }: searchContextProps) {
   async function searchJikan() {
     setIsLoading(true);
     await jikanSearch.get("anime?q=" + search).then((res) => {
-      const data = res.data.data;
-      const anime: Anime[] = data.map((anime: Jikan) => {
-        const url = formatLink(anime.title);
+      const anime: Anime[] = res.data.data.map((anime: Jikan) => {
         return {
           _id: anime.mal_id,
           title: anime.title,
@@ -61,7 +59,7 @@ export function SearchContextProvider({ children }: searchContextProps) {
           external_links: [
             {
               name: "MyAnimeList",
-              url: BetterAnimeLink + url,
+              url: BetterAnimeLink + formatLink(anime.title),
             },
           ],
         };
