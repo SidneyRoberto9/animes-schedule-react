@@ -44,52 +44,69 @@ export function JikanContextProvider({ children }: jikanContextProps) {
     const season = props.year + "/" + premieredSeason;
 
     setIsLoading(true);
-    await jikanSeason.get(season).then((response) => {
-      const data = response.data.data;
-      const anime: Anime[] = data.map((anime: Jikan) => {
-        const url = formatLink(anime.title);
-        return {
-          _id: anime.mal_id,
-          title: anime.title,
-          image_url: anime.images.jpg.image_url,
-          weekday: "none",
-          airing: anime.airing,
-          external_links: [
-            {
-              name: "BetterAnime",
-              url: BetterAnimeLink + url,
-            },
-          ],
-        };
-      });
+    await jikanSeason.get(season).then(async (response) => {
+      const allAnimes: Anime[] = [];
+      const pages = response.data.pagination.last_visible_page;
+
+      for (let i = 1; i <= pages; i++) {
+        await jikanSeason.get(season + "?page=" + i).then((response) => {
+          response.data.data.map((anime: Jikan) => {
+            allAnimes.push({
+              _id: anime.mal_id,
+              title: anime.title,
+              image_url: anime.images.jpg.image_url,
+              weekday: "none",
+              airing: anime.airing,
+              external_links: [
+                {
+                  name: "BetterAnime",
+                  url: BetterAnimeLink + formatLink(anime.title),
+                },
+              ],
+              year: anime.year,
+              premiered: anime.season,
+            });
+          });
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+        });
+      }
       setIsLoading(false);
-      setJikan(anime);
+      setJikan(allAnimes);
       // eslint-disable-next-line react-hooks/exhaustive-deps
     });
   }
 
   async function jikanBase() {
     setIsLoading(true);
-    await jikanSeason.get(ActualSeason).then((response) => {
-      const data = response.data.data;
-      const anime: Anime[] = data.map((anime: Jikan) => {
-        const url = formatLink(anime.title);
-        return {
-          _id: anime.mal_id,
-          title: anime.title,
-          image_url: anime.images.jpg.image_url,
-          weekday: "none",
-          airing: anime.airing,
-          external_links: [
-            {
-              name: "BetterAnime",
-              url: BetterAnimeLink + url,
-            },
-          ],
-        };
-      });
+    await jikanSeason.get(ActualSeason).then(async (response) => {
+      const allAnimes: Anime[] = [];
+      const pages = response.data.pagination.last_visible_page;
+
+      for (let i = 1; i <= pages; i++) {
+        await jikanSeason.get(ActualSeason + "?page=" + i).then((response) => {
+          response.data.data.map((anime: Jikan) => {
+            allAnimes.push({
+              _id: anime.mal_id,
+              title: anime.title,
+              image_url: anime.images.jpg.image_url,
+              weekday: "none",
+              airing: anime.airing,
+              external_links: [
+                {
+                  name: "BetterAnime",
+                  url: BetterAnimeLink + formatLink(anime.title),
+                },
+              ],
+              year: anime.year,
+              premiered: anime.season,
+            });
+          });
+          // eslint-disable-next-line react-hooks/exhaustive-deps
+        });
+      }
       setIsLoading(false);
-      setJikan(anime);
+      setJikan(allAnimes);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     });
   }
 
