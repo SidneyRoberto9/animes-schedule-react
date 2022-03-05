@@ -50,7 +50,7 @@ export function JikanContextProvider({ children }: jikanContextProps) {
 
       for (let i = 1; i <= pages; i++) {
         await jikanSeason.get(season + "?page=" + i).then((response) => {
-          response.data.data.map((anime: Jikan) => {
+          response.data.data.map((anime: Jikan) =>
             allAnimes.push({
               _id: anime.mal_id,
               title: anime.title,
@@ -65,9 +65,8 @@ export function JikanContextProvider({ children }: jikanContextProps) {
               ],
               year: anime.year,
               premiered: anime.season,
-            });
-            return;
-          });
+            })
+          );
           // eslint-disable-next-line react-hooks/exhaustive-deps
         });
       }
@@ -85,7 +84,7 @@ export function JikanContextProvider({ children }: jikanContextProps) {
 
       for (let i = 1; i <= pages; i++) {
         await jikanSeason.get(ActualSeason + "?page=" + i).then((response) => {
-          response.data.data.map((anime: Jikan) => {
+          response.data.data.map((anime: Jikan) =>
             allAnimes.push({
               _id: anime.mal_id,
               title: anime.title,
@@ -100,9 +99,8 @@ export function JikanContextProvider({ children }: jikanContextProps) {
               ],
               year: anime.year,
               premiered: anime.season,
-            });
-            return;
-          });
+            })
+          );
           // eslint-disable-next-line react-hooks/exhaustive-deps
         });
       }
