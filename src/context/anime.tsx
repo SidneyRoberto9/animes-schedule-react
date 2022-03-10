@@ -2,7 +2,6 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 
 import { Anime } from "../model/animes";
 import { api } from "../services/anime-schedule-api";
-
 interface AnimeContextData {
   Animes: Anime[];
   animesBase: () => void;
