@@ -27,7 +27,7 @@ interface filterProps {
 export function JikanContextProvider({ children }: jikanContextProps) {
   const [Jikan, setJikan] = useState<Anime[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const ActualSeason = "2022/winter";
+  const ActualSeason = "2022/Spring";
   const BetterAnimeLink = "https://betteranime.net/anime/legendado/";
 
   function formatLink(link: string) {
