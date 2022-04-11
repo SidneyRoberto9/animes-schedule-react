@@ -23,9 +23,43 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
 
   async function animesBase() {
     setIsLoadingAnime(true);
-    await api.get("animes/2022/Winter").then((response) => {
-      setAnimes(response.data);
-    });
+
+    let animesData = localStorage.getItem("herokuAnimes");
+    let time = localStorage.getItem("herokuAnimesCache");
+    let timeUpdate = 3600000; // 1 hora
+
+    if (!animesData) {
+      await api.get("animes").then((response) => {
+        let filterAnime: Anime[] = response.data.filter(
+          (anime: Anime) => anime.airing === true
+        );
+
+        localStorage.setItem("herokuAnimes", JSON.stringify(filterAnime));
+        localStorage.setItem(
+          "herokuAnimesCache",
+          JSON.stringify(new Date().getTime())
+        );
+        setAnimes(filterAnime);
+      });
+    } else {
+      if (time) {
+        let data = {
+          animes: JSON.parse(animesData),
+          timeCache: JSON.parse(time),
+        };
+
+        if (new Date().getTime() - data.timeCache > timeUpdate) {
+          localStorage.removeItem("herokuAnimes");
+          localStorage.setItem(
+            "herokuAnimesCache",
+            JSON.stringify(new Date().getTime())
+          );
+        } else {
+          setAnimes(data.animes);
+        }
+      }
+    }
+
     setIsLoadingAnime(false);
   }
 
