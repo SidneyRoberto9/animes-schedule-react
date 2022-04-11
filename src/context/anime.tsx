@@ -23,7 +23,7 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
 
   async function animesBase() {
     setIsLoadingAnime(true);
-    await api.get("animes").then((response) => {
+    await api.get("animes/2022/Winter").then((response) => {
       setAnimes(response.data);
     });
     setIsLoadingAnime(false);
