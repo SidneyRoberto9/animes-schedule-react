@@ -25,14 +25,19 @@ export function Filter() {
 
   return (
     <Container>
-      <select name="year" id="year" onChange={(e) => setYear(e.target.value)}>
+      <select
+        name="year"
+        id="year"
+        onChange={(e) => setYear(e.target.value)}
+        defaultValue={"DEFAULT"}
+      >
         {selectYear.map((row) => (
           <option key={row} value={row}>
             {row}
           </option>
         ))}
-        <option hidden value={selectYear[0]} selected>
-          ------
+        <option hidden value="DEFAULT">
+          Escolha...
         </option>
       </select>
 
@@ -40,14 +45,15 @@ export function Filter() {
         name="season"
         id="season"
         onChange={(e) => setPremiered(e.target.value)}
+        defaultValue={"DEFAULT"}
       >
         {selectPremier.map((season) => (
           <option key={season.en} value={season.en}>
             {season.pt}
           </option>
         ))}
-        <option hidden value={selectPremier[2].en} selected>
-          -------
+        <option hidden value="DEFAULT">
+          Escolha...
         </option>
       </select>
 
