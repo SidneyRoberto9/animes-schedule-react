@@ -1,18 +1,21 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Container = styled.body`
+export const Container = styled.div`
   * {
     box-sizing: border-box;
     outline: 0;
     font: 14px "Poppins";
     font-weight: 300;
+    width: 97vw;
+    overflow-x: hidden;
+    margin: 0 auto;
   }
 
   #root {
     margin: 0 auto;
     max-width: 330px;
     width: 100%;
-    padding: 40px 0;
+    margin: 40px 0;
   }
 
   form {
