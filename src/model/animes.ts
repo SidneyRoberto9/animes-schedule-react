@@ -24,3 +24,8 @@ export type ModalProps = {
   handleClose: () => void;
   open: boolean;
 };
+
+export type inputObj = {
+  value: string;
+  number: number;
+};

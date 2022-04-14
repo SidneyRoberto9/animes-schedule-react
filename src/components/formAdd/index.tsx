@@ -6,7 +6,9 @@ import { Form } from "@unform/web";
 import { Anime } from "../../model/animes";
 import { api } from "../../services/anime-schedule-api";
 import { Input } from "../input";
+
 import { Container } from "./style";
+import { dayObject, launchStated, season, year } from "../../data/data";
 
 export function FormAdd() {
   function handleSubmit(data: Anime, { reset }: any) {
@@ -20,15 +22,25 @@ export function FormAdd() {
       <Form onSubmit={handleSubmit}>
         <h1>Anime</h1>
 
-        <Input name="title" label="Titulo" />
-        <Input name="image_url" label="Url Image" />
-        <Input name="weekday" label="Dia da Semana" />
-        <Input name="airing" label="Esta lançando? (true or false)" />
-        <Input name="year" label="Ano" />
-        <Input name="premiered" label="Estação" />
+        <Input name="title" label="Titulo" type="input" />
+        <Input name="image_url" label="Url Image" type="input" />
+        <Input
+          name="weekday"
+          label="Dia da Semana"
+          type="select"
+          values={dayObject}
+        />
+        <Input
+          name="airing"
+          label="Esta lançando? (true or false)"
+          type="select"
+          values={launchStated}
+        />
+        <Input name="year" label="Ano" type="select" values={year} />
+        <Input name="premiered" label="Estação" type="select" values={season} />
         <Scope path="external_links[0]">
-          <Input name="nome" label="Nome do Site Para Assistir" />
-          <Input name="url" label="Link do Site" />
+          <Input name="nome" label="Nome do Site Para Assistir" type="input" />
+          <Input name="url" label="Link do Site" type="input" />
         </Scope>
 
         <button type="submit">Save</button>

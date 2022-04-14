@@ -1,16 +1,20 @@
-import { useContext, useEffect, useState } from "react";
 import { AppBar, Tab, Tabs, ThemeProvider } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+
+import { CardDisplay, Container, override, theme } from "./style";
 import { AnimeContext } from "../../context/anime";
 import { jikanContext } from "../../context/jikan";
+import { inputObj } from "../../model/animes";
+import { dayObject } from "../../data/data";
 import { MediaCard } from "../card";
 import { Filter } from "../filtro";
-import { CardDisplay, Container, override, theme } from "./style";
 
 export function TabsButton() {
   const [value, setValue] = useState(0);
-  const { Animes, animesBase, getWeekDay, isLoadingAnime } =
-    useContext(AnimeContext);
+  const { Animes, animesBase, getWeekDay, isLoadingAnime } = useContext(
+    AnimeContext
+  );
   const { Jikan, isLoading } = useContext(jikanContext);
 
   useEffect(() => {
@@ -65,11 +69,11 @@ export function TabsButton() {
             <ClipLoader color={"#121212"} css={override} size={200} />
           )}
         </TabPanel>
-        {dayObj.map((week) => {
+        {dayObject.map((week: inputObj) => {
           return (
-            <TabPanel value={value} index={week.dayNumber} key={week.dayNumber}>
+            <TabPanel value={value} index={week.number} key={week.number}>
               {isLoadingAnime === false ? (
-                <MediaCard animes={Animes} day={week.day} />
+                <MediaCard animes={Animes} day={week.value} />
               ) : (
                 <ClipLoader color={"#121212"} css={override} size={200} />
               )}
@@ -85,34 +89,3 @@ function TabPanel(props: any) {
   const { children, value, index } = props;
   return <>{value === index && <CardDisplay>{children}</CardDisplay>}</>;
 }
-
-const dayObj = [
-  {
-    day: "segunda",
-    dayNumber: 1,
-  },
-  {
-    day: "terca",
-    dayNumber: 2,
-  },
-  {
-    day: "quarta",
-    dayNumber: 3,
-  },
-  {
-    day: "quinta",
-    dayNumber: 4,
-  },
-  {
-    day: "sexta",
-    dayNumber: 5,
-  },
-  {
-    day: "sabado",
-    dayNumber: 6,
-  },
-  {
-    day: "domingo",
-    dayNumber: 7,
-  },
-];

@@ -42,7 +42,8 @@ export const Container = styled.div`
     margin: 0 auto;
   }
 
-  input {
+  input,
+  select {
     width: 80%;
     margin-bottom: 15px;
     padding: 12px 16px;
