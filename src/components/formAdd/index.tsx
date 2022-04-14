@@ -20,8 +20,6 @@ export function FormAdd() {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <h1>Anime</h1>
-
         <Input name="title" label="Titulo" type="input" />
         <Input name="image_url" label="Url Image" type="input" />
         <Input
@@ -42,7 +40,6 @@ export function FormAdd() {
           <Input name="nome" label="Nome do Site Para Assistir" type="input" />
           <Input name="url" label="Link do Site" type="input" />
         </Scope>
-
         <button type="submit">Save</button>
       </Form>
     </Container>
