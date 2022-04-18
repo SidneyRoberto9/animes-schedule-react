@@ -26,7 +26,7 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
 
     let animesData = localStorage.getItem("herokuAnimes");
     let time = localStorage.getItem("herokuAnimesCache");
-    let timeUpdate = 86400000; // 24 horas
+    let timeUpdate = 604800000; // 7 dias
 
     if (!animesData) {
       await api.get("animes").then((response) => {
