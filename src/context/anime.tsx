@@ -30,9 +30,9 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
 
     if (!animesData) {
       await api.get("animes").then((response) => {
-        let filterAnime: Anime[] = response.data.filter(
-          (anime: Anime) => anime.airing === true
-        );
+        let filterAnime: Anime[] = response.data
+          .filter((anime: Anime) => anime.airing === true)
+          .sort((a: Anime, b: Anime) => a.title.localeCompare(b.title));
 
         localStorage.setItem("herokuAnimes", JSON.stringify(filterAnime));
         localStorage.setItem(
