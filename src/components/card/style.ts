@@ -19,19 +19,23 @@ export const Container = styled.div`
     margin: 8px;
     cursor: pointer;
     img {
-      transition: 0.5s;
+      transition: height 500ms ease-out, filter 800ms;
       width: 100%;
       height: 80%;
       object-fit: cover;
     }
 
     .title {
+      width: 95%;
+      margin: 0 auto;
       color: #fff;
       font-size: 1.2rem;
       text-align: center;
       margin-top: 10px;
       max-height: 3rem;
       overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
 
     &:hover {
