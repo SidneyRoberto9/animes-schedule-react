@@ -23,9 +23,9 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
   async function animesBase() {
     setIsLoadingAnime(true);
 
-    let animesData = localStorage.getItem('herokuAnimes');
-    let time = localStorage.getItem('herokuAnimesCache');
-    let timeUpdate = 604800000; // 7 dias
+    let animesData = localStorage.getItem('animes');
+    let time = localStorage.getItem('timeCache');
+    let timeUpdate = 1000 * 60 * 60 * 24; // 24 horas
 
     if (!animesData) {
       await api.get('animes').then((response) => {
@@ -33,8 +33,8 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
           .filter((anime: Anime) => anime.airing === true)
           .sort((a: Anime, b: Anime) => a.title.localeCompare(b.title));
 
-        localStorage.setItem('herokuAnimes', JSON.stringify(filterAnime));
-        localStorage.setItem('herokuAnimesCache', JSON.stringify(new Date().getTime()));
+        localStorage.setItem('animes', JSON.stringify(filterAnime));
+        localStorage.setItem('timeCache', JSON.stringify(new Date().getTime()));
         setAnimes(filterAnime);
       });
     } else {
