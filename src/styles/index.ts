@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const IndexStyle = createGlobalStyle`
     body {
-      
+      overflow-x: hidden;
       position: relative;
       padding-bottom: 30px;
       margin: 0;
