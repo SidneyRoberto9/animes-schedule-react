@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
-import { useField } from "@unform/core";
-import { inputObj } from "../../model/animes";
+import { useField } from '@unform/core';
+
+import { inputObj } from '../../model/animes';
 
 type InputProps = {
   name: string;

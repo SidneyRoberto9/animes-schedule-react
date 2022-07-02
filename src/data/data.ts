@@ -1,4 +1,4 @@
-import { inputObj } from "../model/animes";
+import { inputObj } from '../model/animes';
 
 export const dayObject: inputObj[] = [
   {

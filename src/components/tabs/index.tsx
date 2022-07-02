@@ -1,6 +1,7 @@
-import { AppBar, Tab, Tabs, ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
+
+import { AppBar, Tab, Tabs, ThemeProvider } from '@mui/material';
 
 import { dayObject } from '../../data/data';
 import { useAnime } from '../../hooks/useAnime';

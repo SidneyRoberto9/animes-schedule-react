@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import { css } from '@emotion/react';
 import { createTheme } from '@mui/material';
-import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
