@@ -1,7 +1,8 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
-import { Anime } from "../model/animes";
-import { api } from "../services/anime-schedule-api";
+import { Anime } from '../model/animes';
+import { api } from '../services/anime-schedule-api';
+
 interface AnimeContextData {
   Animes: Anime[];
   animesBase: () => void;
@@ -9,9 +10,7 @@ interface AnimeContextData {
   isLoadingAnime: boolean;
 }
 
-export const AnimeContext = createContext<AnimeContextData>(
-  {} as AnimeContextData
-);
+export const AnimeContext = createContext<AnimeContextData>({} as AnimeContextData);
 
 type AnimeContextProps = {
   children: ReactNode;
@@ -24,21 +23,18 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
   async function animesBase() {
     setIsLoadingAnime(true);
 
-    let animesData = localStorage.getItem("herokuAnimes");
-    let time = localStorage.getItem("herokuAnimesCache");
+    let animesData = localStorage.getItem('herokuAnimes');
+    let time = localStorage.getItem('herokuAnimesCache');
     let timeUpdate = 604800000; // 7 dias
 
     if (!animesData) {
-      await api.get("animes").then((response) => {
+      await api.get('animes').then((response) => {
         let filterAnime: Anime[] = response.data
           .filter((anime: Anime) => anime.airing === true)
           .sort((a: Anime, b: Anime) => a.title.localeCompare(b.title));
 
-        localStorage.setItem("herokuAnimes", JSON.stringify(filterAnime));
-        localStorage.setItem(
-          "herokuAnimesCache",
-          JSON.stringify(new Date().getTime())
-        );
+        localStorage.setItem('herokuAnimes', JSON.stringify(filterAnime));
+        localStorage.setItem('herokuAnimesCache', JSON.stringify(new Date().getTime()));
         setAnimes(filterAnime);
       });
     } else {
@@ -49,11 +45,8 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
         };
 
         if (new Date().getTime() - data.timeCache > timeUpdate) {
-          localStorage.removeItem("herokuAnimes");
-          localStorage.setItem(
-            "herokuAnimesCache",
-            JSON.stringify(new Date().getTime())
-          );
+          localStorage.removeItem('herokuAnimes');
+          localStorage.setItem('herokuAnimesCache', JSON.stringify(new Date().getTime()));
           window.location.reload();
         } else {
           setAnimes(data.animes);
@@ -91,10 +84,14 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
   }, []);
 
   return (
-    <AnimeContext.Provider
-      value={{ Animes, animesBase, getWeekDay, isLoadingAnime }}
-    >
+    <AnimeContext.Provider value={{ Animes, animesBase, getWeekDay, isLoadingAnime }}>
       {children}
     </AnimeContext.Provider>
   );
 }
+
+export const useAnime = () => {
+  const context = useContext(AnimeContext);
+
+  return context;
+};

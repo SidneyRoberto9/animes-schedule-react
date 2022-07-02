@@ -18,8 +18,9 @@ export const Container = styled.div`
     overflow: hidden;
     margin: 8px;
     cursor: pointer;
+    transition: filter 800ms, transform 800ms;
+
     img {
-      transition: height 500ms ease-out, filter 800ms;
       width: 100%;
       height: 80%;
       object-fit: cover;
@@ -32,6 +33,7 @@ export const Container = styled.div`
       font-size: 1.2rem;
       text-align: center;
       margin-top: 10px;
+      line-height: 1.5rem;
       max-height: 3rem;
       overflow: hidden;
       -webkit-line-clamp: 2;
@@ -39,12 +41,11 @@ export const Container = styled.div`
     }
 
     &:hover {
-      img {
-        height: 1000%;
-        filter: saturate(150%);
-      }
+      transform: translateY(-2%);
+      filter: saturate(115%);
     }
   }
+
   @media (max-width: 1024px) {
     .card-anime {
       width: 180px;

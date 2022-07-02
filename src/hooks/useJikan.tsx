@@ -1,8 +1,8 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
-import { Anime } from "../model/animes";
-import { Jikan } from "../model/jikan";
-import { jikanSeason } from "../services/anime-schedule-api";
+import { Anime } from '../model/animes';
+import { Jikan } from '../model/jikan';
+import { jikanSeason } from '../services/anime-schedule-api';
 
 interface JikanContextData {
   Jikan: Anime[];
@@ -11,9 +11,7 @@ interface JikanContextData {
   isLoading: boolean;
 }
 
-export const jikanContext = createContext<JikanContextData>(
-  {} as JikanContextData
-);
+export const jikanContext = createContext<JikanContextData>({} as JikanContextData);
 
 type jikanContextProps = {
   children: ReactNode;
@@ -27,21 +25,21 @@ interface filterProps {
 export function JikanContextProvider({ children }: jikanContextProps) {
   const [Jikan, setJikan] = useState<Anime[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const ActualSeason = "2022/Spring";
-  const BetterAnimeLink = "https://betteranime.net/anime/legendado/";
+  const ActualSeason = '2022/Spring';
+  const BetterAnimeLink = 'https://betteranime.net/anime/legendado/';
 
   function formatLink(link: string) {
     link = link.toLowerCase();
-    link = link.replace(" (tv)", "");
-    link = link.replace(/:/g, "");
-    link = link.replace(/ /g, "-");
+    link = link.replace(' (tv)', '');
+    link = link.replace(/:/g, '');
+    link = link.replace(/ /g, '-');
 
     return link;
   }
 
   async function filterAnime(props: filterProps) {
     const premieredSeason = props.premiered.toLowerCase();
-    const season = props.year + "/" + premieredSeason;
+    const season = props.year + '/' + premieredSeason;
 
     setIsLoading(true);
     await jikanSeason.get(season).then(async (response) => {
@@ -49,17 +47,17 @@ export function JikanContextProvider({ children }: jikanContextProps) {
       const pages = response.data.pagination.last_visible_page;
 
       for (let i = 1; i <= pages; i++) {
-        await jikanSeason.get(season + "?page=" + i).then((response) => {
+        await jikanSeason.get(season + '?page=' + i).then((response) => {
           response.data.data.map((anime: Jikan) =>
             allAnimes.push({
               _id: anime.mal_id,
               title: anime.title,
               image_url: anime.images.jpg.image_url,
-              weekday: "none",
+              weekday: 'none',
               airing: anime.airing,
               external_links: [
                 {
-                  name: "BetterAnime",
+                  name: 'BetterAnime',
                   url: BetterAnimeLink + formatLink(anime.title),
                 },
               ],
@@ -83,17 +81,17 @@ export function JikanContextProvider({ children }: jikanContextProps) {
       const pages = response.data.pagination.last_visible_page;
 
       for (let i = 1; i <= pages; i++) {
-        await jikanSeason.get(ActualSeason + "?page=" + i).then((response) => {
+        await jikanSeason.get(ActualSeason + '?page=' + i).then((response) => {
           response.data.data.map((anime: Jikan) =>
             allAnimes.push({
               _id: anime.mal_id,
               title: anime.title,
               image_url: anime.images.jpg.image_url,
-              weekday: "none",
+              weekday: 'none',
               airing: anime.airing,
               external_links: [
                 {
-                  name: "BetterAnime",
+                  name: 'BetterAnime',
                   url: BetterAnimeLink + formatLink(anime.title),
                 },
               ],
@@ -121,3 +119,9 @@ export function JikanContextProvider({ children }: jikanContextProps) {
     </jikanContext.Provider>
   );
 }
+
+export const useJikan = () => {
+  const context = useContext(jikanContext);
+
+  return context;
+};

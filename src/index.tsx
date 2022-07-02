@@ -1,25 +1,22 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import { App } from "./App";
-import { AnimeContextProvider } from "./context/anime";
-import { JikanContextProvider } from "./context/jikan";
-import { SearchContextProvider } from "./context/search";
-import { IndexStyle } from "./styles/index";
+import { App } from './App';
+import { AnimeContextProvider } from './hooks/useAnime';
+import { JikanContextProvider } from './hooks/useJikan';
+import { IndexStyle } from './styles';
 
 ReactDOM.render(
   <React.StrictMode>
     <AnimeContextProvider>
       <JikanContextProvider>
-        <SearchContextProvider>
-          <BrowserRouter>
-            <App />
-            <IndexStyle />
-          </BrowserRouter>
-        </SearchContextProvider>
+        <BrowserRouter>
+          <App />
+          <IndexStyle />
+        </BrowserRouter>
       </JikanContextProvider>
     </AnimeContextProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );

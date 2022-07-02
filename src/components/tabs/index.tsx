@@ -1,21 +1,19 @@
-import { AppBar, Tab, Tabs, ThemeProvider } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
+import { AppBar, Tab, Tabs, ThemeProvider } from '@mui/material';
+import { useEffect, useState } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
 
-import { CardDisplay, Container, override, theme } from "./style";
-import { AnimeContext } from "../../context/anime";
-import { jikanContext } from "../../context/jikan";
-import { inputObj } from "../../model/animes";
-import { dayObject } from "../../data/data";
-import { MediaCard } from "../card";
-import { Filter } from "../filtro";
+import { dayObject } from '../../data/data';
+import { useAnime } from '../../hooks/useAnime';
+import { useJikan } from '../../hooks/useJikan';
+import { inputObj } from '../../model/animes';
+import { MediaCard } from '../card';
+import { Filter } from '../filtro';
+import { CardDisplay, Container, Display, override, theme } from './style';
 
 export function TabsButton() {
   const [value, setValue] = useState(0);
-  const { Animes, animesBase, getWeekDay, isLoadingAnime } = useContext(
-    AnimeContext
-  );
-  const { Jikan, isLoading } = useContext(jikanContext);
+  const { Animes, animesBase, getWeekDay, isLoadingAnime } = useAnime();
+  const { Jikan, isLoading } = useJikan();
 
   useEffect(() => {
     setValue(getWeekDay());
@@ -29,44 +27,44 @@ export function TabsButton() {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <AppBar position="static" sx={{ background: "#121212" }}>
+        <AppBar position='static' sx={{ background: '#121212' }}>
           <Tabs
             value={value}
             onChange={handleChange}
             onClick={animesBase}
-            variant="scrollable"
+            variant='scrollable'
             scrollButtons={true}
-            textColor="primary"
-            indicatorColor="primary"
+            textColor='primary'
+            indicatorColor='primary'
             allowScrollButtonsMobile={true}
             sx={{
-              background: "#121212",
-              m: "0 auto",
-              ".MuiTabs-scrollButtons": {
-                color: "#fff",
+              background: '#121212',
+              m: '0 auto',
+              '.MuiTabs-scrollButtons': {
+                color: '#fff',
               },
-              "@media (max-width: 420px)": {
-                m: "0",
+              minHeight: '50px',
+              '@media (max-width: 420px)': {
+                m: '0',
               },
-            }}
-          >
-            <Tab label="todos" />
-            <Tab label="Segunda" />
-            <Tab label="Terça" />
-            <Tab label="Quarta" />
-            <Tab label="Quinta" />
-            <Tab label="Sexta" />
-            <Tab label="Sábado" />
-            <Tab label="Domingo" />
+            }}>
+            <Tab label='todos' />
+            <Tab label='Segunda' />
+            <Tab label='Terça' />
+            <Tab label='Quarta' />
+            <Tab label='Quinta' />
+            <Tab label='Sexta' />
+            <Tab label='Sábado' />
+            <Tab label='Domingo' />
           </Tabs>
         </AppBar>
 
         <TabPanel value={value} index={0}>
           <Filter />
           {isLoading === false ? (
-            <MediaCard animes={Jikan} day="todos" />
+            <MediaCard animes={Jikan} day='todos' />
           ) : (
-            <ClipLoader color={"#121212"} css={override} size={200} />
+            <ClipLoader color={'#121212'} css={override} size={200} />
           )}
         </TabPanel>
         {dayObject.map((week: inputObj) => {
@@ -75,7 +73,7 @@ export function TabsButton() {
               {isLoadingAnime === false ? (
                 <MediaCard animes={Animes} day={week.value} />
               ) : (
-                <ClipLoader color={"#121212"} css={override} size={200} />
+                <ClipLoader color={'#121212'} css={override} size={200} />
               )}
             </TabPanel>
           );
@@ -87,5 +85,13 @@ export function TabsButton() {
 
 function TabPanel(props: any) {
   const { children, value, index } = props;
-  return <>{value === index && <CardDisplay>{children}</CardDisplay>}</>;
+  return (
+    <>
+      {value === index && (
+        <Display>
+          <CardDisplay>{children}</CardDisplay>
+        </Display>
+      )}
+    </>
+  );
 }
