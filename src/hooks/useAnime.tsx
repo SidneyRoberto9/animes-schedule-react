@@ -45,8 +45,8 @@ export function AnimeContextProvider({ children }: AnimeContextProps) {
         };
 
         if (new Date().getTime() - data.timeCache > timeUpdate) {
-          localStorage.removeItem('herokuAnimes');
-          localStorage.setItem('herokuAnimesCache', JSON.stringify(new Date().getTime()));
+          localStorage.removeItem('animes');
+          localStorage.setItem('timeCache', JSON.stringify(new Date().getTime()));
           window.location.reload();
         } else {
           setAnimes(data.animes);
