@@ -7,7 +7,6 @@
   <a href="https://github.com/SidneyRoberto9">
     <img alt="Developed by Sidney Roberto" src="https://img.shields.io/badge/Developer-Sidney_Roberto-%3498db?color=3498db&style=for-the-badge&label=Desenvolvedor">
   </a>  
-  <img alt="Project License" src="https://img.shields.io/apm/l/vim-mode?style=for-the-badge&label=licen%C3%A7a"/>   
   <img alt="Project Status" src="https://img.shields.io/badge/Finalizado-498db?color=green&style=for-the-badge&label=Status">
 
 ## </p>
@@ -16,7 +15,6 @@
 
 <div align="center">
 
-Deploy do front-end efetuado no [Vercel](https://vercel.com/) para visualizar: [Clique Aqui](https://animes-schedule-react.vercel.app/)
 
 |                              :computer:Desktop                              |                              :iphone: Mobile                               |
 | :-------------------------------------------------------------------------: | :------------------------------------------------------------------------: |
